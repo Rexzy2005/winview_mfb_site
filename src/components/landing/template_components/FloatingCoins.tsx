@@ -34,7 +34,7 @@ const FloatingCoins = () => {
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     renderer.domElement.style.pointerEvents = 'none';
-    renderer.domElement.style.zIndex = '9999'; // FORCE IT TO TOP
+    renderer.domElement.style.zIndex = '-20'; // FORCE IT TO TOP
     
     mountRef.current.appendChild(renderer.domElement);
 
@@ -158,7 +158,7 @@ const FloatingCoins = () => {
   return (
       <div 
         ref={mountRef} 
-        className="absolute inset-0 w-full h-full pointer-events-none bg-red-500/20"
+        className="absolute inset-0 w-full h-full pointer-events-none bg-transparent"
         style={{ zIndex: 100 }}
       />
   );

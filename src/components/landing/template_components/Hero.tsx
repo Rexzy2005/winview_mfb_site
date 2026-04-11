@@ -23,7 +23,7 @@ const Hero = () => {
 
       {/* 3D Floating Coins Background */}
       {mounted && (
-          <div className="absolute top-0 left-0 w-full h-full z-[40] pointer-events-none opacity-100 mix-blend-normal">
+          <div className="absolute top-0 left-0 w-full h-full z-[20] pointer-events-none opacity-[0.7] mix-blend-normal">
             <FloatingCoins />
           </div>
         )}
@@ -85,8 +85,8 @@ const Hero = () => {
             <div className={`flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-8 md:mb-10 opacity-0 ${mounted ? 'animate-fade-up delay-[250ms]' : ''}`}>
               {/* CBN License */}
               <div className="flex items-center gap-3">
-                <img src="/cbn_logo.png" alt="CBN Logo" className="h-9 sm:h-12 w-auto object-contain" />
-                <span className="text-[#f9f6f6] text-sm sm:text-base font-medium">CBN Licensed</span>
+                <img src="/cbn_logo.png" alt="CBN Logo" className="h-9 sm:h-12 w-9 object-contain" />
+                <span className="text-[#f9f6f6] text-[12px] sm:text-base font-medium">CBN Licensed</span>
               </div>
               
               {/* Divider */}
@@ -94,8 +94,8 @@ const Hero = () => {
               
               {/* NDIC License */}
               <div className="flex items-center gap-3">
-                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-9 sm:h-10 w-auto object-contain px-2 py-1 rounded-sm" />
-                <span className="text-[#f9f6f6] text-sm sm:text-base font-medium">NDIC Licensed</span>
+                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-9 sm:h-12 sm:w-12 w-9 object-contain px-2 py-1 rounded-sm" />
+                <span className="text-[#f9f6f6] text-[12px] sm:text-base font-medium">NDIC Licensed</span>
               </div>
             </div>
             <div className={`flex flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 opacity-0 w-full sm:w-auto ${mounted ? 'animate-fade-up delay-300' : ''}`}>

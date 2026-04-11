@@ -31,7 +31,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="w-full bg-[#f9f6f6] font-sans selection:bg-[#72b90d] selection:text-[#000000] py-12">
-      <div className="relative py-16 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-24 mx-4 md:mx-6">
+      <div className="relative py-16 lg:py-24 px-2 sm:px-6 md:px-12 lg:px-24 mx-4 md:mx-6">
         {/* Contact Hero Content */}
         <div className="relative z-10 w-full flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-8">
           <div className="w-full lg:w-1/2 text-center lg:text-left pt-0 lg:pt-8">
@@ -123,11 +123,11 @@ export default function Contact() {
             <div className="absolute top-4 -right-4 w-full h-full bg-[#2a650a]/40 border border-[#72b90d]/20 rounded-3xl -z-10 rotate-3"></div>
             
             {/* Licenses Section under the form */}
-            <div className="mt-12 flex flex-row items-center justify-center gap-4 sm:gap-6">
+            <div className="mt-10 flex flex-row items-center justify-center gap-4 sm:gap-6">
               {/* CBN License */}
               <div className="flex items-center gap-2 sm:gap-3">
-                <img src="/cbn_logo.png" alt="CBN Logo" className="h-8 sm:h-10 w-auto object-contain" />
-                <span className="text-slate-800 text-sm sm:text-base font-medium">CBN Licensed</span>
+                <img src="/cbn_logo.png" alt="CBN Logo" className="h-6 sm:h-10 w-6 object-contain" />
+                <span className="text-slate-800 text-[12px] sm:text-base font-medium">CBN Licensed</span>
               </div>
               
               {/* Divider */}
@@ -135,8 +135,8 @@ export default function Contact() {
               
               {/* NDIC License */}
               <div className="flex items-center gap-2 sm:gap-3">
-                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-8 w-auto object-contain rounded-sm" />
-                <span className="text-slate-800 text-sm sm:text-base font-medium">NDIC Licensed</span>
+                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-8 w-8 object-contain rounded-sm" />
+                <span className="text-slate-800 text-[12px] sm:text-base font-medium">NDIC Licensed</span>
               </div>
             </div>
           </div>
