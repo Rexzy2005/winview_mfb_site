@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -17,6 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" />
+        <Script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" strategy="lazyOnload" />
         <div className="bg-morphing"></div>
         
         
