@@ -1,4 +1,6 @@
+const fs = require('fs');
 
+const content = `
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -39,7 +41,7 @@ export default function AboutUsPage() {
             <div className="animate-pulse-glow delay-500 absolute bottom-[-10%] left-[-5%] w-[50%] sm:w-[30%] h-[40%] bg-[#72b90d] rounded-full blur-[80px] sm:blur-[100px] opacity-10"></div>
           </div>
 
-          <nav className={`relative z-50 flex items-center justify-between mb-12 sm:mb-16 md:mb-24 opacity-0 ${mounted ? 'animate-fade-up' : ''}`}>
+          <nav className={\`relative z-50 flex items-center justify-between mb-12 sm:mb-16 md:mb-24 opacity-0 \${mounted ? 'animate-fade-up' : ''}\`}>
             <Link href="/" className="flex items-center gap-2 text-[#f9f6f6] font-medium text-lg tracking-tight hover:opacity-80 transition-opacity cursor-pointer">
               <img src="/brandLogo.png" alt="WinView Logo" className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover shadow-sm bg-[#72b90d] border border-white/10" />
               <div className="flex items-center">
@@ -53,13 +55,13 @@ export default function AboutUsPage() {
                 className="bg-[#72b90d] text-[#000000] px-5 py-2.5 rounded-full flex items-center gap-2 text-sm font-medium hover:scale-105 transition-transform duration-300 relative z-50"
               >
                 Menu
-                <div className={`w-1.5 h-1.5 bg-[#000000] rounded-full transition-transform duration-300 ${menuOpen ? 'scale-150' : ''}`}></div>
+                <div className={\`w-1.5 h-1.5 bg-[#000000] rounded-full transition-transform duration-300 \${menuOpen ? 'scale-150' : ''}\`}></div>
               </button>
 
               <div 
-                className={`absolute top-full right-0 mt-3 w-48 bg-white/95 backdrop-blur-xl rounded-2xl p-2 shadow-2xl border border-white/20 origin-top-right transition-all duration-300 ease-out z-40 ${
+                className={\`absolute top-full right-0 mt-3 w-48 bg-white/95 backdrop-blur-xl rounded-2xl p-2 shadow-2xl border border-white/20 origin-top-right transition-all duration-300 ease-out z-40 \${
                   menuOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
-                }`}
+                }\`}
               >
                 <Link href="/" className="flex items-center gap-3 p-3 hover:bg-slate-100 rounded-xl text-sm font-medium transition-colors text-slate-800 group">
                   <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-white flex items-center justify-center transition-colors shadow-sm">
@@ -79,10 +81,10 @@ export default function AboutUsPage() {
           </nav>
 
           <div className="relative z-20 max-w-4xl mx-auto text-center mt-12 pb-10 sm:pb-0">
-            <h1 className={`text-[#f9f6f6] text-[clamp(2.5rem,6vw,4.5rem)] font-medium tracking-tight leading-[1.1] mb-6 opacity-0 ${mounted ? 'animate-fade-up delay-100' : ''}`}>
+            <h1 className={\`text-[#f9f6f6] text-[clamp(2.5rem,6vw,4.5rem)] font-medium tracking-tight leading-[1.1] mb-6 opacity-0 \${mounted ? 'animate-fade-up delay-100' : ''}\`}>
               Banking Built <span className="text-[#72b90d]">Around You.</span>
             </h1>
-            <p className={`text-slate-300 text-[clamp(1rem,1.8vw,1.25rem)] font-light leading-relaxed max-w-2xl mx-auto opacity-0 ${mounted ? 'animate-fade-up delay-200' : ''}`}>
+            <p className={\`text-slate-300 text-[clamp(1rem,1.8vw,1.25rem)] font-light leading-relaxed max-w-2xl mx-auto opacity-0 \${mounted ? 'animate-fade-up delay-200' : ''}\`}>
               At WinView Microfinance Bank, we’re not just another bank. We’re reimagining how Nigerians save, borrow, and grow their money—starting with how we treat our customers.
             </p>
           </div>
@@ -93,7 +95,7 @@ export default function AboutUsPage() {
       <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-            <div className={`opacity-0 ${mounted ? 'animate-fade-up delay-300' : ''}`}>
+            <div className={\`opacity-0 \${mounted ? 'animate-fade-up delay-300' : ''}\`}>
               <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-slate-900 mb-6">
                 Our <span className="text-[#2a650a]">Mission</span>
               </h2>
@@ -107,7 +109,7 @@ export default function AboutUsPage() {
               </div>
             </div>
             
-            <div className={`relative opacity-0 ${mounted ? 'animate-fade-in delay-500' : ''}`}>
+            <div className={\`relative opacity-0 \${mounted ? 'animate-fade-in delay-500' : ''}\`}>
               <div className="aspect-square rounded-[3rem] overflow-hidden bg-[#000000] relative">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#2a650a] to-[#72b90d] mix-blend-overlay opacity-80"></div>
                 <img src="/ndic_logo.png" alt="Mission Pattern" className="w-full h-full object-cover opacity-20 scale-150 rotate-12 blur-sm" />
@@ -191,3 +193,7 @@ export default function AboutUsPage() {
     </main>
   );
 }
+`;
+
+fs.writeFileSync('src/app/about-us/page.tsx', content);
+console.log("Updated about-us page successfully.");

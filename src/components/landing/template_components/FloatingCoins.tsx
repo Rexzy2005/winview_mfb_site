@@ -47,13 +47,13 @@ const FloatingCoins = () => {
     scene.add(pointLight);
 
     // COINS
-    const geometry = new THREE.CylinderGeometry(1.5, 1.5, 0.4, 32);
+    const geometry = new THREE.CylinderGeometry(0.8, 0.8, 0.2, 32);
     const material = new THREE.MeshStandardMaterial({
       color: 0xffd700, 
       metalness: 0.3, // REDUCE METALNESS for easier visibility
       roughness: 0.4,
       emissive: 0xffa500, // MAKE IT GLOW SLIGHTLY
-      emissiveIntensity: 0.4
+      emissiveIntensity: 0.1
     });
     
     const coinsGroup = new THREE.Group();
@@ -87,18 +87,7 @@ const FloatingCoins = () => {
     }
 
     // ONE CENTER COIN
-    const centerMesh = new THREE.Mesh(geometry, material);
-    centerMesh.position.set(0, 0, 5); // IN YOUR FACE
-    centerMesh.scale.set(2, 2, 2); // BIG
-    coinsGroup.add(centerMesh);
-    coins.push({
-      mesh: centerMesh,
-      rotateXSpeed: 0.01,
-      rotateYSpeed: 0.02,
-      floatSpeed: 1.5,
-      floatOffset: 0,
-      baseY: 0
-    });
+    // Center coin removed so it stays in background
 
     let animationFrameId: number;
     let targetX = 0;
@@ -159,7 +148,7 @@ const FloatingCoins = () => {
       <div 
         ref={mountRef} 
         className="absolute inset-0 w-full h-full pointer-events-none bg-transparent"
-        style={{ zIndex: 100 }}
+        style={{ zIndex: 0 }}
       />
   );
 };

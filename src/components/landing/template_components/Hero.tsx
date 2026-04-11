@@ -23,7 +23,7 @@ const Hero = () => {
 
       {/* 3D Floating Coins Background */}
       {mounted && (
-          <div className="absolute top-0 left-0 w-full h-full z-[20] pointer-events-none opacity-[0.7] mix-blend-normal">
+          <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none opacity-30 mix-blend-screen">
             <FloatingCoins />
           </div>
         )}
@@ -85,7 +85,7 @@ const Hero = () => {
             <div className={`flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-8 md:mb-10 opacity-0 ${mounted ? 'animate-fade-up delay-[250ms]' : ''}`}>
               {/* CBN License */}
               <div className="flex items-center gap-3">
-                <img src="/cbn_logo.png" alt="CBN Logo" className="h-9 sm:h-12 w-9 object-contain" />
+                <img src="/cbn_logo.png" alt="CBN Logo" className="h-6 sm:h-10 w-auto object-contain" />
                 <span className="text-[#f9f6f6] text-[12px] sm:text-base font-medium">CBN Licensed</span>
               </div>
               
@@ -94,7 +94,7 @@ const Hero = () => {
               
               {/* NDIC License */}
               <div className="flex items-center gap-3">
-                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-9 sm:h-12 sm:w-12 w-9 object-contain px-2 py-1 rounded-sm" />
+                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-6 sm:h-10 w-auto object-contain px-1 sm:px-2 py-0.5 sm:py-1 rounded-sm" />
                 <span className="text-[#f9f6f6] text-[12px] sm:text-base font-medium">NDIC Licensed</span>
               </div>
             </div>

@@ -126,7 +126,7 @@ export default function Contact() {
             <div className="mt-10 flex flex-row items-center justify-center gap-4 sm:gap-6">
               {/* CBN License */}
               <div className="flex items-center gap-2 sm:gap-3">
-                <img src="/cbn_logo.png" alt="CBN Logo" className="h-6 sm:h-10 w-6 object-contain" />
+                <img src="/cbn_logo.png" alt="CBN Logo" className="h-5 sm:h-8 w-auto object-contain" />
                 <span className="text-slate-800 text-[12px] sm:text-base font-medium">CBN Licensed</span>
               </div>
               
@@ -135,7 +135,7 @@ export default function Contact() {
               
               {/* NDIC License */}
               <div className="flex items-center gap-2 sm:gap-3">
-                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-8 w-8 object-contain rounded-sm" />
+                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-5 sm:h-8 w-auto object-contain rounded-sm" />
                 <span className="text-slate-800 text-[12px] sm:text-base font-medium">NDIC Licensed</span>
               </div>
             </div>
