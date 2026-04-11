@@ -1,0 +1,74 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f6f6;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #72b90d;
+  color: #000000;
+}
+
+/* Custom Scrollbar for Testimonials */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Animations replacing GSAP */
+@keyframes floatFront {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-15px) rotate(-8deg); }
+}
+
+@keyframes floatBack {
+  0%, 100% { transform: translateY(0) rotate(12deg); }
+  50% { transform: translateY(-10px) rotate(13deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-float-front {
+  animation: floatFront 4s ease-in-out infinite;
+}
+
+.animate-float-back {
+  animation: floatBack 5s ease-in-out infinite 0.5s;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered entrance delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
