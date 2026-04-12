@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import MobileCarousel from '@/components/landing/template_components/MobileCarousel';
 import Footer from '@/components/landing/template_components/Footer';
 import '@/components/landing/template_components/template.css';
 
@@ -82,9 +83,29 @@ export default function AboutUsPage() {
             <h1 className={`text-[#f9f6f6] text-[clamp(2.5rem,6vw,4.5rem)] font-medium tracking-tight leading-[1.1] mb-6 opacity-0 ${mounted ? 'animate-fade-up delay-100' : ''}`}>
               Banking Built <span className="text-[#72b90d]">Around You.</span>
             </h1>
-            <p className={`text-slate-300 text-[clamp(1rem,1.8vw,1.25rem)] font-light leading-relaxed max-w-2xl mx-auto opacity-0 ${mounted ? 'animate-fade-up delay-200' : ''}`}>
+            <p className={`text-slate-300 text-[clamp(1rem,1.8vw,1.25rem)] font-light leading-relaxed max-w-2xl mx-auto mb-8 opacity-0 ${mounted ? 'animate-fade-up delay-200' : ''}`}>
               At WinView Microfinance Bank, we’re not just another bank. We’re reimagining how Nigerians save, borrow, and grow their money—starting with how we treat our customers.
             </p>
+            
+            {/* Trust Badges */}
+            <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 ${mounted ? 'animate-fade-up delay-[250ms]' : ''}`}>
+              <div className="inline-flex items-center bg-white/5 backdrop-blur-md rounded-xl px-3 py-1.5 sm:px-4 sm:py-2.5 shadow-sm border border-white/10">
+                {/* CBN License */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-white/80 text-[10px] sm:text-[13px] font-medium whitespace-nowrap">Fully licensed by CBN</span>
+                  <img src="/cbn_logo.png" alt="CBN Logo" className="h-4 sm:h-6 w-auto object-contain drop-shadow-sm filter brightness-0 invert" />
+                </div>
+                
+                {/* Divider */}
+                <div className="h-4 sm:h-5 w-[1px] bg-white/20 mx-2.5 sm:mx-4"></div>
+                
+                {/* NDIC License */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-white/80 text-[10px] sm:text-[13px] font-medium whitespace-nowrap">Deposits Insured by</span>
+                  <img src="/ndic_logo.png" alt="NDIC Logo" className="h-3 sm:h-4 w-auto object-contain rounded-sm mix-blend-screen bg-white/80" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -107,17 +128,19 @@ export default function AboutUsPage() {
               </div>
             </div>
             
-            <div className={`relative opacity-0 ${mounted ? 'animate-fade-in delay-500' : ''}`}>
-              <div className="aspect-square rounded-[3rem] overflow-hidden bg-[#000000] relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#2a650a] to-[#72b90d] mix-blend-overlay opacity-80"></div>
-                <img src="/ndic_logo.png" alt="Mission Pattern" className="w-full h-full object-cover opacity-20 scale-150 rotate-12 blur-sm" />
-                <div className="absolute inset-0 flex items-center justify-center p-12 text-center z-10">
-                   <div className="w-24 h-24 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-2xl">
-                      <img src="/brandLogo.png" className="w-12 h-12 object-contain filter brightness-0 invert" alt="WinView Logomark" />
-                   </div>
-                </div>
+            <div className={`relative opacity-0 ${mounted ? 'animate-fade-in delay-500' : ''} group`}>
+              {/* Premium Glow Underlay */}
+              <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-[#2a650a] to-[#72b90d] rounded-[2.5rem] md:rounded-[3.5rem] blur-[30px] opacity-20 group-hover:opacity-40 transition-opacity duration-700 -z-10"></div>
+              
+              {/* High-End Card Container */}
+              <div className="aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#131413] relative flex items-center justify-center shadow-[0_20px_60px_rgba(0,0,0,0.5)] ring-1 ring-white/10 group-hover:ring-white/20 transition-all duration-700">
+                
+                {/* Diagonal Glass Sheen */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out z-10 pointer-events-none"></div>
+                
+                {/* Logo Fill */}
+                <img src="/brand.png" alt="WinView Brand Mission Logo" className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.03] scale-[1.01]" />
               </div>
-              <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-[#72b90d] rounded-full blur-[80px] opacity-30 -z-10"></div>
             </div>
           </div>
         </div>
@@ -172,7 +195,21 @@ export default function AboutUsPage() {
               </Link>
             </div>
             
-            <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="block sm:hidden w-full relative z-10 overflow-hidden -mx-4 w-[calc(100%+2rem)]">
+              <MobileCarousel>
+                {promises.map((promise, idx) => (
+                  <div key={idx} className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/10 transition-colors duration-300 h-full flex flex-col justify-center">
+                    <div className="text-[#72b90d] font-bold text-3xl mb-5 opacity-50">0{idx + 1}</div>
+                    <h3 className="text-xl font-medium text-white mb-4">{promise.title}</h3>
+                    <p className="text-slate-400 text-base leading-relaxed">
+                      {promise.desc}
+                    </p>
+                  </div>
+                ))}
+              </MobileCarousel>
+            </div>
+            
+            <div className="hidden sm:grid sm:grid-cols-2 gap-6 relative z-10">
               {promises.map((promise, idx) => (
                 <div key={idx} className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-3xl p-6 hover:bg-white/10 transition-colors duration-300">
                   <div className="text-[#72b90d] font-bold text-2xl mb-3 opacity-50">0{idx + 1}</div>
@@ -183,6 +220,28 @@ export default function AboutUsPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Headquarters Location */}
+      <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#f9f6f6]">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#72b90d]/10 text-[#2a650a] rounded-full mb-6">
+            <iconify-icon icon="solar:map-point-linear" className="text-3xl"></iconify-icon>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[#000000] mb-4">
+            Visit Our Headquarters
+          </h2>
+          <p className="text-lg text-slate-500 font-light mb-8 max-w-2xl mx-auto">
+             Whether you want to discuss a large co-operative transition, have questions about your account, or just prefer to chat in person, our doors are always open.
+          </p>
+          <div className="bg-white rounded-3xl p-8 border border-slate-200/60 shadow-sm inline-block text-left w-full max-w-lg">
+            <h4 className="text-[#000000] font-medium text-xl mb-1">WinView Microfinance Bank</h4>
+            <p className="text-slate-500 font-light leading-relaxed">
+              Plot 102A Collins Aimuan Road,<br/>
+              Kuje, Abuja, FCT.
+            </p>
           </div>
         </div>
       </section>

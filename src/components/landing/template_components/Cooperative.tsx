@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from 'react';
 import Reveal from './Reveal';
 
@@ -129,9 +130,9 @@ const Cooperative = () => {
             ))}
           </ul>
           <Reveal delay={700}>
-            <button className="w-full sm:w-auto bg-[#000000] text-[#f9f6f6] px-8 py-3.5 rounded-full text-base font-medium hover:bg-[#2a650a] transition-colors duration-300 shadow-lg">
+            <Link href="/about-us" className="inline-block text-center w-full sm:w-auto bg-[#000000] text-[#f9f6f6] px-8 py-3.5 rounded-full text-base font-medium hover:bg-[#2a650a] transition-colors duration-300 shadow-lg">
               Learn about Cooperative Banking
-            </button>
+            </Link>
           </Reveal>
         </div>
       </div>

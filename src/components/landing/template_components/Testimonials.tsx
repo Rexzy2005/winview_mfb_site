@@ -143,7 +143,7 @@ const Testimonials = () => {
 
   return (
     <div className="px-4 md:px-8 py-8 max-w-[85rem] mx-auto">
-      <div className="bg-[#000000] rounded-[3rem] p-10 md:p-16 relative overflow-hidden min-h-[600px] flex flex-col justify-center">
+      <div className="bg-[#000000] rounded-[3rem] p-6 md:p-16 relative overflow-hidden min-h-[600px] flex flex-col justify-center">
         
         {/* Three.js Canvas Container */}
         <div ref={mountRef} className="absolute inset-0 z-0 pointer-events-none opacity-60"></div>

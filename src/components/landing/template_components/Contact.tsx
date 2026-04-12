@@ -123,20 +123,22 @@ export default function Contact() {
             <div className="absolute top-4 -right-4 w-full h-full bg-[#2a650a]/40 border border-[#72b90d]/20 rounded-3xl -z-10 rotate-3"></div>
             
             {/* Licenses Section under the form */}
-            <div className="mt-10 flex flex-row items-center justify-center gap-4 sm:gap-6">
-              {/* CBN License */}
-              <div className="flex items-center gap-2 sm:gap-3">
-                <img src="/cbn_logo.png" alt="CBN Logo" className="h-5 sm:h-8 w-auto object-contain" />
-                <span className="text-slate-800 text-[12px] sm:text-base font-medium">CBN Licensed</span>
-              </div>
-              
-              {/* Divider */}
-              <div className="h-6 sm:h-8 w-[1px] bg-slate-300"></div>
-              
-              {/* NDIC License */}
-              <div className="flex items-center gap-2 sm:gap-3">
-                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-5 sm:h-8 w-auto object-contain rounded-sm" />
-                <span className="text-slate-800 text-[12px] sm:text-base font-medium">NDIC Licensed</span>
+            <div className="mt-10 flex justify-center">
+              <div className="inline-flex items-center bg-[#f0f2f5]/50 rounded-md px-3 py-1.5 sm:px-4 sm:py-2.5 shadow-sm">
+                {/* CBN License */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-slate-600 text-[10px] sm:text-[13px] font-medium whitespace-nowrap">Fully licensed by CBN</span>
+                  <img src="/cbn_logo.png" alt="CBN Logo" className="h-4 sm:h-6 w-auto object-contain drop-shadow-sm" />
+                </div>
+                
+                {/* Divider */}
+                <div className="h-4 sm:h-5 w-[1px] bg-slate-300 mx-2.5 sm:mx-4"></div>
+                
+                {/* NDIC License */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-slate-600 text-[10px] sm:text-[13px] font-medium whitespace-nowrap">Deposits Insured by</span>
+                  <img src="/ndic_logo.png" alt="NDIC Logo" className="h-3 sm:h-4 w-auto object-contain rounded-sm mix-blend-multiply" />
+                </div>
               </div>
             </div>
           </div>
@@ -162,8 +164,8 @@ export default function Contact() {
               </div>
               <h4 className="text-3xl font-medium tracking-tight text-[#000000] mb-4">Email Support</h4>
               <p className="text-base text-slate-500 font-light mb-6">Our team typically responds in under 2 hours during normal business operation.</p>
-              <a href="mailto:support@winview.com" className="text-base font-medium text-[#2a650a] hover:text-[#72b90d] transition-colors inline-flex items-center gap-2">
-                support@winview.com
+              <a href="mailto:admin@winviewmfb.com" className="text-base font-medium text-[#2a650a] hover:text-[#72b90d] transition-colors inline-flex items-center gap-2">
+                admin@winviewmfb.com
                 <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
               </a>
             </div>
@@ -185,7 +187,7 @@ export default function Contact() {
               </div>
               <h4 className="text-3xl font-medium tracking-tight text-[#000000] mb-4">Branch Network</h4>
               <p className="text-base text-slate-500 font-light mb-6">Locate a WinView Microfinance branch or affiliated cooperative center.</p>
-              <a href="#" className="text-base font-medium text-[#2a650a] hover:text-[#72b90d] transition-colors inline-flex items-center gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Plot+102A+Collins+Aimuan+Road,+Kuje,+Abuja,+FCT" target="_blank" rel="noopener noreferrer" className="text-base font-medium text-[#2a650a] hover:text-[#72b90d] transition-colors inline-flex items-center gap-2">
                 Find a branch
                 <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
               </a>
@@ -203,8 +205,8 @@ export default function Contact() {
               </div>
               <h4 className="text-xl font-medium tracking-tight text-[#000000] mb-2">Email Support</h4>
               <p className="text-slate-500 font-light text-sm mb-6">Our team typically responds in under 2 hours during normal business operation.</p>
-              <a href="mailto:support@winview.com" className="text-sm font-medium text-[#2a650a] hover:text-[#72b90d] transition-colors inline-flex items-center gap-2">
-                support@winview.com
+              <a href="mailto:admin@winviewmfb.com" className="text-sm font-medium text-[#2a650a] hover:text-[#72b90d] transition-colors inline-flex items-center gap-2">
+                admin@winviewmfb.com
                 <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
               </a>
             </div>
@@ -232,8 +234,8 @@ export default function Contact() {
                 <iconify-icon icon="solar:routing-2-linear" className="text-3xl"></iconify-icon>
               </div>
               <h4 className="text-xl font-medium tracking-tight text-[#000000] mb-2">Headquarters</h4>
-              <p className="text-slate-500 font-light text-sm mb-6">14 WinView Street, Corporate District, Lagos, Nigeria.</p>
-              <a href="#" className="text-sm font-medium text-[#2a650a] hover:text-[#72b90d] transition-colors inline-flex items-center gap-2">
+              <p className="text-slate-500 font-light text-sm mb-6">Plot 102A Collins Aimuan Road, Kuje, Abuja, FCT.</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Plot+102A+Collins+Aimuan+Road,+Kuje,+Abuja,+FCT" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[#2a650a] hover:text-[#72b90d] transition-colors inline-flex items-center gap-2">
                 Get Directions
                 <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
               </a>

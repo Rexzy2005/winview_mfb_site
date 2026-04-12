@@ -1,11 +1,23 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import FloatingCoins from './FloatingCoins';
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -13,8 +25,8 @@ const Hero = () => {
 
 
   return (
-    <div className="px-0 pt-0 md:px-6 md:pt-4">
-      <div className="bg-[#000000] min-h-[100svh] lg:min-h-0 rounded-t-none rounded-b-[2.5rem] md:rounded-[3.5rem] relative overflow-hidden pb-32 lg:pb-32 pt-6 px-4 sm:px-6 md:px-12 lg:px-24 flex flex-col z-0">
+    <div className="p-0 md:px-6 md:p-4">
+      <div className="bg-[#000000] h-[100svh] lg:h-auto lg:min-h-0 rounded-t-none rounded-b-[2rem] md:rounded-b-[3.5rem] relative overflow-hidden pb-16 lg:pb-32 pt-6 px-4 sm:px-6 md:px-12 lg:px-24 flex flex-col z-0 lg:py-24">
         {/* Background Glows */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
           <div className="animate-pulse-glow absolute top-[-10%] right-[-5%] w-[60%] sm:w-[40%] h-[50%] bg-[#2a650a] rounded-full blur-[100px] sm:blur-[120px] opacity-30"></div>
@@ -36,7 +48,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="relative">
+          <div className="relative" ref={menuRef}>
             <button 
               onClick={() => setMenuOpen(!menuOpen)}
               className="bg-[#72b90d] text-[#000000] px-5 py-2.5 rounded-full flex items-center gap-2 text-sm font-medium hover:scale-105 transition-transform duration-300 relative z-50"
@@ -46,34 +58,43 @@ const Hero = () => {
             </button>
 
             {/* Dropdown Menu */}
-            <div 
-              className={`absolute top-full right-0 mt-3 w-48 bg-white/95 backdrop-blur-xl rounded-2xl p-2 shadow-2xl border border-white/20 origin-top-right transition-all duration-300 ease-out z-40 ${
-                menuOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
-              }`}
-            >
-              <a href="/about-us" className="flex items-center gap-3 p-3 hover:bg-slate-100 rounded-xl text-sm font-medium transition-colors text-slate-800 group">
-                <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-white flex items-center justify-center transition-colors shadow-sm">
-                  <iconify-icon icon="solar:info-circle-linear" className="text-lg text-[#2a650a]"></iconify-icon>
-                </div>
-                About Us
-              </a>
-              <div className="h-px w-full bg-slate-100 my-1"></div>
-              <a href="/#contact" className="flex items-center gap-3 p-3 hover:bg-slate-100 rounded-xl text-sm font-medium transition-colors text-slate-800 group">
-                <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-white flex items-center justify-center transition-colors shadow-sm">
-                  <iconify-icon icon="solar:phone-calling-linear" className="text-lg text-[#2a650a]"></iconify-icon>
-                </div>
-                Contact
-              </a>
-            </div>
+            <AnimatePresence>
+              {menuOpen && (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8, y: -20, rotateX: -20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, y: -20, rotateX: -20 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 24 }}
+                  className="absolute top-full right-0 mt-3 w-48 bg-white/95 backdrop-blur-xl rounded-2xl p-2 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)] border border-slate-200/50 origin-top-right z-40"
+                  style={{ perspective: 1000 }}
+                >
+                  <a href="/about-us" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 p-3 hover:bg-[#72b90d]/10 rounded-xl text-sm font-medium transition-all duration-300 text-slate-800 group overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none"></div>
+                    <div className="w-8 h-8 rounded-full bg-[#f9f6f6] group-hover:bg-white flex items-center justify-center transition-colors shadow-sm group-hover:scale-110 duration-300">
+                      <iconify-icon icon="solar:info-circle-linear" className="text-lg text-[#2a650a]"></iconify-icon>
+                    </div>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">About Us</span>
+                  </a>
+                  <div className="h-px w-full bg-slate-100 my-1 relative overflow-hidden"><div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#72b90d]/30 to-transparent"></div></div>
+                  <a href="/#contact" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 p-3 hover:bg-[#72b90d]/10 rounded-xl text-sm font-medium transition-all duration-300 text-slate-800 group overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none"></div>
+                    <div className="w-8 h-8 rounded-full bg-[#f9f6f6] group-hover:bg-white flex items-center justify-center transition-colors shadow-sm group-hover:scale-110 duration-300">
+                      <iconify-icon icon="solar:phone-calling-linear" className="text-lg text-[#2a650a]"></iconify-icon>
+                    </div>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">Contact</span>
+                  </a>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </nav>
 
         
 
         {/* Hero Content */}
-        <div className="relative z-20 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center flex-1 pb-10 lg:pb-0">
+        <div className="relative z-20 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center flex-1 pb-6 lg:pb-0">
           <div className="relative z-30 max-w-xl mx-auto lg:mx-0 text-center lg:text-left mt-4 sm:mt-0 lg:-translate-y-8 lg:translate-y-0 bg-black/40 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-5 sm:p-8 lg:p-0 rounded-3xl lg:rounded-none border border-white/5 lg:border-none shadow-2xl lg:shadow-none">
-            <h1 className={`text-[#f9f6f6] text-[clamp(2.5rem,8vw,5.5rem)] font-medium tracking-tight leading-[1.1] mb-6 opacity-0 ${mounted ? 'animate-fade-up delay-100' : ''}`}>
+            <h1 className={`text-[#f9f6f6] text-[clamp(2.5rem,8vw,4.5rem)] lg:text-[4rem] font-medium tracking-tight leading-[1.1] mb-6 opacity-0 ${mounted ? 'animate-fade-up delay-100' : ''}`}>
               Banking built <br className="hidden md:block" />
               around <span className="text-[#72b90d]">you.</span>
             </h1>
@@ -82,20 +103,22 @@ const Hero = () => {
             </p>
 
             {/* Trust Badges */}
-            <div className={`flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-8 md:mb-10 opacity-0 ${mounted ? 'animate-fade-up delay-[250ms]' : ''}`}>
-              {/* CBN License */}
-              <div className="flex items-center gap-3">
-                <img src="/cbn_logo.png" alt="CBN Logo" className="h-6 sm:h-10 w-auto object-contain" />
-                <span className="text-[#f9f6f6] text-[12px] sm:text-base font-medium">CBN Licensed</span>
-              </div>
-              
-              {/* Divider */}
-              <div className="h-8 sm:h-10 w-[1px] bg-white/20"></div>
-              
-              {/* NDIC License */}
-              <div className="flex items-center gap-3">
-                <img src="/ndic_logo.png" alt="NDIC Logo" className="h-6 sm:h-10 w-auto object-contain px-1 sm:px-2 py-0.5 sm:py-1 rounded-sm" />
-                <span className="text-[#f9f6f6] text-[12px] sm:text-base font-medium">NDIC Licensed</span>
+            <div className={`flex flex-col sm:flex-row items-center lg:items-start gap-4 justify-center lg:justify-start mb-8 md:mb-10 opacity-0 ${mounted ? 'animate-fade-up delay-[250ms]' : ''}`}>
+              <div className="inline-flex items-center bg-[#f0f2f5]/50 rounded-md px-3 py-1.5 sm:px-4 sm:py-2.5 shadow-sm">
+                {/* CBN License */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-black text-[10px] sm:text-[13px] font-medium whitespace-nowrap">Fully licensed by CBN</span>
+                  <img src="/cbn_logo.png" alt="CBN Logo" className="h-4 sm:h-6 w-auto object-contain drop-shadow-sm" />
+                </div>
+                
+                {/* Divider */}
+                <div className="h-4 sm:h-5 w-[1px] bg-slate-300 mx-2.5 sm:mx-4"></div>
+                
+                {/* NDIC License */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-black text-[10px] sm:text-[13px] font-medium whitespace-nowrap">Deposits Insured by</span>
+                  <img src="/ndic_logo.png" alt="NDIC Logo" className="h-3 sm:h-4 w-auto object-contain rounded-sm mix-blend-multiply" />
+                </div>
               </div>
             </div>
             <div className={`flex flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 opacity-0 w-full sm:w-auto ${mounted ? 'animate-fade-up delay-300' : ''}`}>

@@ -5,6 +5,7 @@ import Hero from "./template_components/Hero";
 import Stats from "./template_components/Stats";
 import Promise from "./template_components/Promise";
 import Cooperative from "./template_components/Cooperative";
+import PoliceTrust from "./template_components/PoliceTrust";
 import Products from "./template_components/Products";
 import HowItWorks from "./template_components/HowItWorks";
 import Testimonials from "./template_components/Testimonials";
@@ -34,6 +35,7 @@ export default function LandingPage() {
             <Stats />
             <Promise />
             <Cooperative />
+            <PoliceTrust />
             <Products />
             <HowItWorks />
             <Testimonials />
