@@ -196,7 +196,7 @@ const Hero = () => {
                   </div>
 
                   {/* Status Bar */}
-                  <div className="absolute top-0 w-full bg-white/50 backdrop-blur-md h-10 z-30 flex justify-between items-center px-4 pt-1">
+                  <div className="absolute top-0 w-full backdrop-blur-md h-10 z-30 flex justify-between items-center px-4 pt-1">
                     <span className="text-[9px] sm:text-[10px] font-medium text-slate-800 ml-1">9:41</span>
                     <div className="flex items-center gap-1 z-[40] text-slate-800">
                       <iconify-icon icon="solar:cellular-line-bold" className="text-[10px]"></iconify-icon>
