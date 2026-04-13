@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import MobileCarousel from '@/components/landing/template_components/MobileCarousel';
 import Footer from '@/components/landing/template_components/Footer';
+import Leadership from '@/components/landing/template_components/Leadership';
 import '@/components/landing/template_components/template.css';
 
 export default function AboutUsPage() {
@@ -84,7 +85,7 @@ export default function AboutUsPage() {
               Banking Built <span className="text-[#72b90d]">Around You.</span>
             </h1>
             <p className={`text-slate-300 text-[clamp(1rem,1.8vw,1.25rem)] font-light leading-relaxed max-w-2xl mx-auto mb-8 opacity-0 ${mounted ? 'animate-fade-up delay-200' : ''}`}>
-              At WinView Microfinance Bank, we’re not just another bank. We’re reimagining how Nigerians save, borrow, and grow their money—starting with how we treat our customers.
+              At WinView Microfinance Bank, we’re not just another bank. We’re reimagining how Nigerians save, borrow, and grow their money, starting with how we treat our customers.
             </p>
             
             {/* Trust Badges */}
@@ -223,6 +224,8 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+
+      <Leadership />
 
       {/* Headquarters Location */}
       <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#f9f6f6]">

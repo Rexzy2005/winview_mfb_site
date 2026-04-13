@@ -4,11 +4,19 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FloatingCoins from './FloatingCoins';
 import PhoneMockupUI from './PhoneMockupUI';
+import AnimatedArrow3D from './AnimatedArrow3D';
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleAppClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -26,8 +34,9 @@ const Hero = () => {
 
 
   return (
-    <div className="p-0 md:px-6 md:p-4">
-      <div className="bg-[#000000] h-[100svh] lg:h-auto lg:min-h-0 rounded-t-none rounded-b-[2rem] md:rounded-b-[3rem] md:rounded-t-[3rem] relative overflow-hidden pb-16 lg:pb-32 pt-6 px-4 sm:px-6 md:px-12 lg:px-[4rem] flex flex-col z-0 lg:py-[3rem]">
+    <>
+      <div className="p-0 md:px-6 md:p-4">
+        <div className="bg-[#000000] h-[100svh] lg:h-auto lg:min-h-0 rounded-t-none rounded-b-[2rem] md:rounded-b-[3rem] md:rounded-t-[3rem] relative overflow-hidden pb-16 lg:pb-32 pt-6 px-4 sm:px-6 md:px-12 lg:px-[4rem] flex flex-col z-0 lg:py-[3rem]">
         {/* Background Glows */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
           <div className="animate-pulse-glow absolute top-[-10%] right-[-5%] w-[60%] sm:w-[40%] h-[50%] bg-[#2a650a] rounded-full blur-[100px] sm:blur-[120px] opacity-30"></div>
@@ -122,14 +131,53 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className={`flex flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 opacity-0 w-full sm:w-auto ${mounted ? 'animate-fade-up delay-300' : ''}`}>
-              <button className="flex-1 sm:flex-none w-auto bg-[#72b90d] text-[#000000] px-4 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-medium hover:bg-[#f9f6f6] transition-colors duration-300 shadow-[0_0_20px_rgba(114,185,13,0.3)] hover:shadow-[0_0_30px_rgba(114,185,13,0.5)] whitespace-nowrap">
-                Open an account
-              </button>
-              <button className="flex-1 sm:flex-none w-auto bg-[#f9f6f6] border-2 border-white/70 text-[#000000] px-4 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-medium hover:bg-[#72b90d] hover:border-white transition-colors duration-300 flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap">
-                <iconify-icon icon="solar:smartphone-linear" className="text-lg"></iconify-icon>
-                Get the app
-              </button>
+            <div className={`flex flex-col items-center lg:items-start gap-2 opacity-0 w-full sm:w-auto ${mounted ? 'animate-fade-up delay-300' : ''}`}>
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  ease: [0.16, 1, 0.3, 1],
+                  delay: 0.4
+                }}
+                className="flex flex-col items-center lg:items-start gap-1"
+              >
+                <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl shadow-lg backdrop-blur-md overflow-hidden relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#72b90d]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                  
+                  <div className="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0 z-10">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#72b90d] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-[#72b90d]"></span>
+                  </div>
+                  
+                  <span className="text-xs sm:text-sm md:text-base text-white/90 font-medium tracking-wide whitespace-nowrap z-10">
+                    Download the app to <span className="text-[#72b90d] font-semibold">create an account</span>
+                  </span>
+                </div>
+                
+                {/* 3D Arrow pointing down to the badges */}
+                <div className="h-16 w-full flex justify-center lg:justify-start lg:pl-12 mt-1 mb-2 relative z-20 overflow-visible pointer-events-none drop-shadow-[0_4px_12px_rgba(114,185,13,0.3)]">
+                  <AnimatedArrow3D />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* App Store Badges */}
+            <div className={`flex flex-row items-center justify-center lg:justify-start gap-3 mt-4 opacity-0 ${mounted ? 'animate-fade-up delay-[350ms]' : ''}`}>
+              <a href="#" className="flex items-center gap-2.5 bg-black hover:bg-[#1a1a1a] text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/20 hover:scale-105 transition-all w-[140px] sm:w-[160px] h-[46px] sm:h-[52px] shadow-lg group whitespace-nowrap" onClick={handleAppClick}>
+                <iconify-icon icon="ic:baseline-apple" className="text-3xl sm:text-4xl shrink-0 group-hover:-translate-y-0.5 transition-transform"></iconify-icon>
+                <div className="flex flex-col items-start justify-center leading-none">
+                  <span className="text-[8px] sm:text-[10px] font-medium text-white/80 mb-0.5 whitespace-nowrap">Download on the</span>
+                  <span className="text-[14px] sm:text-[17px] font-semibold tracking-tight -mt-0.5 whitespace-nowrap">App Store</span>
+                </div>
+              </a>
+              <a href="#" className="flex items-center gap-2 bg-black hover:bg-[#1a1a1a] text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/20 hover:scale-105 transition-all w-[140px] sm:w-[160px] h-[46px] sm:h-[52px] shadow-lg group whitespace-nowrap" onClick={handleAppClick}>
+                <iconify-icon icon="logos:google-play-icon" className="text-[24px] sm:text-[30px] shrink-0 group-hover:-translate-y-0.5 transition-transform"></iconify-icon>
+                <div className="flex flex-col items-start justify-center leading-none">
+                  <span className="text-[8px] sm:text-[10px] font-medium text-white/80 uppercase tracking-widest mb-0.5 whitespace-nowrap">GET IT ON</span>
+                  <span className="text-[14px] sm:text-[17px] font-semibold tracking-tight -mt-0.5 whitespace-nowrap">Google Play</span>
+                </div>
+              </a>
             </div>
           </div>
 
@@ -167,8 +215,8 @@ const Hero = () => {
             </div>
             
             {/* Phone 2 (Front/Main) */}
-            <div className={`absolute top-[5%] sm:top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-[10%] w-[60vw] max-w-[260px] sm:max-w-[300px] aspect-[1/2.1] z-20 opacity-0 transform-gpu preserve-3d ${mounted ? 'animate-fade-in delay-500' : ''}`}>
-              <div className="animate-float-front lg:animate-none w-full h-full pb-0 relative group">
+            <div className={`absolute top-[5%] sm:top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-[10%] w-[60vw] max-w-[260px] sm:max-w-[300px] aspect-[1/2.1] z-20 opacity-0 transform-gpu preserve-3d  ${mounted ? 'animate-fade-in delay-500' : ''}`}>
+              <div className="animate-float-front lg:animate-none w-full h-full pb-0 relative group overflow-hidden">
                  {/* 3D Depth / Bevel Edge */}
                  
                  {/* Hardware Buttons - Left Side */}
@@ -212,7 +260,29 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      // </div>
+
+        {/* Coming Soon Toast */}
+        <AnimatePresence>
+          {showToast && (
+            <motion.div
+              initial={{ opacity: 0, x: 100, y: -20, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 100, scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              className="fixed top-24 right-4 sm:top-8 sm:right-8 z-[9999] bg-[#000000] text-white border border-[#72b90d]/30 px-5 sm:px-6 py-3 sm:py-4 rounded-2xl shadow-2xl flex items-center gap-3 sm:gap-4 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#72b90d]/10 to-transparent pointer-events-none"></div>
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#72b90d]/20 flex items-center justify-center shrink-0 relative z-10">
+                <iconify-icon icon="solar:rocket-bold" className="text-lg sm:text-xl text-[#72b90d]"></iconify-icon>
+              </div>
+              <div className="flex flex-col text-left relative z-10">
+                <span className="font-bold text-sm sm:text-base text-white tracking-tight">App Coming Soon!</span>
+                <span className="text-[10px] sm:text-xs text-white/70 whitespace-nowrap">We're launching on iOS & Android shortly.</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+    </>
   );
 };
 

@@ -176,8 +176,8 @@ export default function Contact() {
               </div>
               <h4 className="text-3xl font-medium tracking-tight text-[#f9f6f6] mb-4">24/7 Helpline</h4>
               <p className="text-base text-slate-400 font-light mb-6">For urgent banking queries, suspected fraud, or lost ATM cards.</p>
-              <a href="tel:+2347000000000" className="text-base font-medium text-[#72b90d] hover:text-white transition-colors inline-flex items-center gap-2">
-                +234 (0)700 WIN VIEW
+              <a href="tel:+2348060776556" className="text-base font-medium text-[#72b90d] hover:text-white transition-colors inline-flex items-center gap-2">
+                +234 (0)80 6077 6556
               </a>
             </div>
 
@@ -220,8 +220,8 @@ export default function Contact() {
               </div>
               <h4 className="text-xl font-medium tracking-tight text-[#f9f6f6] mb-2">24/7 Helpline</h4>
               <p className="text-slate-400 font-light text-sm mb-6">For urgent banking queries, suspected fraud, or lost ATM cards.</p>
-              <a href="tel:+2347000000000" className="text-sm font-medium text-[#72b90d] hover:text-white transition-colors inline-flex items-center gap-2">
-                +234 (0)700 WIN VIEW
+              <a href="tel:+2348060776556" className="text-sm font-medium text-[#72b90d] hover:text-white transition-colors inline-flex items-center gap-2">
+                +234 (0)80 6077 6556
                 <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
               </a>
             </div>

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-import CustomCursor from "@/components/CustomCursor";
-import Navbar from "@/components/Navbar";
-import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
