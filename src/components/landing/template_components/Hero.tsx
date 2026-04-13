@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FloatingCoins from './FloatingCoins';
+import PhoneMockupUI from './PhoneMockupUI';
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -26,7 +27,7 @@ const Hero = () => {
 
   return (
     <div className="p-0 md:px-6 md:p-4">
-      <div className="bg-[#000000] h-[100svh] lg:h-auto lg:min-h-0 rounded-t-none rounded-b-[2rem] md:rounded-b-[3.5rem] relative overflow-hidden pb-16 lg:pb-32 pt-6 px-4 sm:px-6 md:px-12 lg:px-24 flex flex-col z-0 lg:py-24">
+      <div className="bg-[#000000] h-[100svh] lg:h-auto lg:min-h-0 rounded-t-none rounded-b-[2rem] md:rounded-b-[3rem] md:rounded-t-[3rem] relative overflow-hidden pb-16 lg:pb-32 pt-6 px-4 sm:px-6 md:px-12 lg:px-[4rem] flex flex-col z-0 lg:py-[3rem]">
         {/* Background Glows */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
           <div className="animate-pulse-glow absolute top-[-10%] right-[-5%] w-[60%] sm:w-[40%] h-[50%] bg-[#2a650a] rounded-full blur-[100px] sm:blur-[120px] opacity-30"></div>
@@ -137,9 +138,15 @@ const Hero = () => {
           <div className="flex absolute lg:relative bottom-0 lg:bottom-auto left-1/2 lg:left-auto -translate-x-1/2 lg:translate-x-0 translate-y-[20%] sm:translate-y-[15%] lg:translate-y-0 h-[380px] sm:h-[500px] lg:h-[650px] w-full lg:w-full justify-center lg:justify-end perspective-[1000px] z-0 lg:z-20 mix-blend-screen lg:mix-blend-normal">
             
             {/* Phone 1 (Back/Secondary) */}
-            <div className={`absolute top-[10%] sm:top-[12%] left-1/2 -translate-x-[60%] sm:-translate-x-[65%] lg:left-auto lg:translate-x-0 lg:right-[15%] w-[55vw] max-w-[240px] sm:max-w-[280px] aspect-[1/2.1] z-0 opacity-0 ${mounted ? 'animate-fade-in delay-400' : ''}`}>
-              <div className="animate-float-back w-full h-full pb-0 transform-gpu preserve-3d">
-                <div className="w-full h-full bg-gradient-to-b from-[#152e0c] to-[#081204] border-[6px] sm:border-[10px] border-r-[#060606] border-t-[#060606] border-l-[#2c2c2c] border-b-[#1c1c1c] rounded-[2.2rem] sm:rounded-[3.2rem] shadow-[-12px_15px_0px_#040802,-25px_30px_40px_rgba(0,0,0,0.95)] overflow-hidden relative">
+            <div className={`absolute top-[10%] sm:top-[12%] left-1/2 -translate-x-[60%] sm:-translate-x-[65%] lg:left-auto lg:translate-x-0 lg:right-[15%] w-[50vw] max-w-[220px] sm:max-w-[260px] aspect-[1/2.1] z-0 opacity-0 ${mounted ? 'animate-fade-in delay-400' : ''}`}>
+              <div className="animate-float-back lg:animate-none w-full h-full pb-0 transform-gpu preserve-3d">
+                
+                    <div className="absolute left-[-2px] sm:left-[-3px] top-[15%] w-[2px] sm:w-[3px] h-[5%] bg-gradient-to-r from-[#2c2c2c] to-[#4a4a4a] rounded-l-md border-y border-l border-white/10 shadow-[-1px_0_2px_rgba(255,255,255,0.1)] z-[-1]"></div>
+                    <div className="absolute left-[-2px] sm:left-[-3px] top-[22%] w-[2px] sm:w-[3px] h-[9%] bg-gradient-to-r from-[#2c2c2c] to-[#4a4a4a] rounded-l-md border-y border-l border-white/10 shadow-[-1px_0_2px_rgba(255,255,255,0.1)] z-[-1]"></div>
+                    <div className="absolute left-[-2px] sm:left-[-3px] top-[32%] w-[2px] sm:w-[3px] h-[9%] bg-gradient-to-r from-[#2c2c2c] to-[#4a4a4a] rounded-l-md border-y border-l border-white/10 shadow-[-1px_0_2px_rgba(255,255,255,0.1)] z-[-1]"></div>
+                    <div className="absolute right-[-2px] sm:right-[-3px] top-[25%] w-[2px] sm:w-[3px] h-[12%] bg-gradient-to-l from-[#2c2c2c] to-[#4a4a4a] rounded-r-md border-y border-r border-[#111] shadow-[1px_0_2px_rgba(0,0,0,0.5)] z-[-1]"></div>
+                    <div className="w-full h-full bg-gradient-to-b from-[#152e0c] to-[#081204] border-[4px] sm:border-[6px] border-x-[#2a2a2a] border-t-[#3b3b3b] border-b-[#111111] rounded-[2.2rem] sm:rounded-[3.2rem] shadow-[-12px_15px_0px_#0a0a0a,-25px_30px_40px_rgba(0,0,0,0.95)] overflow-hidden relative">
+
                   {/* Subtle edge highlight for 3D realism */}
                   <div className="absolute inset-0 border-[2px] border-white/5 rounded-[1.8rem] sm:rounded-[2.8rem] z-20 pointer-events-none"></div>
                   {/* Glassmorphism reflection overlay */}
@@ -160,12 +167,25 @@ const Hero = () => {
             </div>
             
             {/* Phone 2 (Front/Main) */}
-            <div className={`absolute top-[5%] sm:top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-[10%] w-[65vw] max-w-[280px] sm:max-w-[320px] aspect-[1/2.1] z-20 opacity-0 transform-gpu preserve-3d ${mounted ? 'animate-fade-in delay-500' : ''}`}>
-              <div className="animate-float-front w-full h-full pb-0 relative group">
+            <div className={`absolute top-[5%] sm:top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-[10%] w-[60vw] max-w-[260px] sm:max-w-[300px] aspect-[1/2.1] z-20 opacity-0 transform-gpu preserve-3d ${mounted ? 'animate-fade-in delay-500' : ''}`}>
+              <div className="animate-float-front lg:animate-none w-full h-full pb-0 relative group">
                  {/* 3D Depth / Bevel Edge */}
-                 <div className="absolute inset-0 bg-[#0a0a0a] rounded-[2.5rem] sm:rounded-[3.2rem] translate-x-[-15px] translate-y-[20px] -z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.9)]"></div>
+                 
+                 {/* Hardware Buttons - Left Side */}
+                 <div className="absolute left-[-2px] sm:left-[-4px] top-[14%] w-[2px] sm:w-[4px] h-[5%] bg-gradient-to-r from-[#1c1c1c] to-[#3a3a3a] rounded-l-sm sm:rounded-l-md border-y border-l border-[#444] shadow-[-1px_0_2px_rgba(255,255,255,0.1)] z-[-1]"></div>
+                 <div className="absolute left-[-2px] sm:left-[-4px] top-[21%] w-[2px] sm:w-[4px] h-[9%] bg-gradient-to-r from-[#1c1c1c] to-[#3a3a3a] rounded-l-sm sm:rounded-l-md border-y border-l border-[#444] shadow-[-1px_0_2px_rgba(255,255,255,0.1)] z-[-1]"></div>
+                 <div className="absolute left-[-2px] sm:left-[-4px] top-[31%] w-[2px] sm:w-[4px] h-[9%] bg-gradient-to-r from-[#1c1c1c] to-[#3a3a3a] rounded-l-sm sm:rounded-l-md border-y border-l border-[#444] shadow-[-1px_0_2px_rgba(255,255,255,0.1)] z-[-1]"></div>
+                 {/* Hardware Buttons - Right Side */}
+                 <div className="absolute right-[-2px] sm:right-[-4px] top-[24%] w-[2px] sm:w-[4px] h-[12%] bg-gradient-to-l from-[#1c1c1c] to-[#3a3a3a] rounded-r-sm sm:rounded-r-md border-y border-r border-[#111] shadow-[2px_0_4px_rgba(0,0,0,0.8)] z-[-1]"></div>
+                 
+                 {/* 3D Depth / Bevel Edge (Black polished titanium base) */}
+                 {/* <div className="absolute inset-0 bg-gradient-to-br from-[#2a2a2a] via-[#111111] to-[#050505] rounded-[2.5rem] sm:rounded-[3.2rem] translate-x-[-12px] translate-y-[15px] sm:translate-x-[-18px] sm:translate-y-[25px] -z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.95)] border border-white/5"></div> */}
+
                  {/* Main Screen Container */}
-                 <div className="w-full h-full bg-[#f9f6f6] border-[8px] sm:border-[14px] border-[#1a1a1a] rounded-[2.5rem] sm:rounded-[3.2rem] overflow-hidden relative shadow-[-15px_20px_0px_#040802]">
+                 <div 
+                  className="w-full h-full bg-[#f9f6f6] border-[4px] sm:border-[10px] border-x-[#1c1c1c] border-t-[#333333] border-b-[#000000] rounded-[2.5rem] sm:rounded-[3.2rem] overflow-hidden relative"
+                  style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+                 >
                   {/* Outer Reflection/Glare overlay */}
                   <div className="absolute inset-0 z-50 pointer-events-none rounded-[2.5rem] sm:rounded-[3.2rem] bg-gradient-to-tr from-white/0 via-white/10 to-transparent mix-blend-overlay transition-opacity duration-1000 opacity-70 group-hover:opacity-100 hidden sm:block"></div>
                   <div className="absolute top-0 left-[-50%] w-[200%] h-full bg-gradient-to-b from-white/10 to-transparent -rotate-45 transform origin-top pointer-events-none mix-blend-overlay z-50"></div>
@@ -176,121 +196,23 @@ const Hero = () => {
                   </div>
 
                   {/* Status Bar */}
-                  <div className="absolute top-0 w-full h-10 z-30 flex justify-between items-center px-4 pt-1">
+                  <div className="absolute top-0 w-full bg-white/50 backdrop-blur-md h-10 z-30 flex justify-between items-center px-4 pt-1">
                     <span className="text-[9px] sm:text-[10px] font-medium text-slate-800 ml-1">9:41</span>
-                    <div className="flex items-center gap-1 text-slate-800">
+                    <div className="flex items-center gap-1 z-[40] text-slate-800">
                       <iconify-icon icon="solar:cellular-line-bold" className="text-[10px]"></iconify-icon>
                       <iconify-icon icon="solar:wifi-bold" className="text-[10px]"></iconify-icon>
                       <iconify-icon icon="solar:battery-charge-minimalistic-bold" className="text-[12px]"></iconify-icon>
                     </div>
                   </div>
 
-                  <div className="w-full h-full p-4 sm:p-5 pt-12 sm:pt-14 flex flex-col relative overflow-y-auto hide-scrollbar">
-                    {/* Header */}
-                  <div className="flex justify-between items-center mb-5 sm:mb-6">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-200 overflow-hidden shadow-sm border border-slate-200">
-                        <img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=100&auto=format&fit=crop" className="w-full h-full object-cover" alt="User" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-[10px] text-slate-500 font-medium">Good morning</span>
-                        <span className="text-xs sm:text-sm font-semibold text-[#000000]">Ade</span>
-                      </div>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-100">
-                      <iconify-icon icon="solar:bell-linear" className="text-lg text-slate-600"></iconify-icon>
-                    </div>
-                  </div>
-                  
-                  {/* Balance Card */}
-                  <div className="bg-[#000000] rounded-[1.25rem] p-4 sm:p-5 shadow-xl mb-4 relative overflow-hidden">
-                    <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[100%] bg-[#2a650a] rounded-full blur-[30px] opacity-60"></div>
-                    <div className="absolute bottom-[-20%] left-[-10%] w-[40%] h-[80%] bg-[#72b90d] rounded-full blur-[30px] opacity-30"></div>
-                    
-                    <div className="relative z-10">
-                      <div className="flex items-center justify-between mb-1">
-                        <div className="text-[9px] sm:text-[10px] font-medium text-[#f9f6f6]/70 uppercase tracking-widest">Total Balance</div>
-                        <iconify-icon icon="solar:eye-linear" className="text-white/50 text-xs"></iconify-icon>
-                      </div>
-                      <div className="text-2xl sm:text-3xl font-semibold text-[#f9f6f6] tracking-tight mb-4 sm:mb-5">₦450,000<span className="text-white/50 text-lg">.00</span></div>
-                      <div className="flex gap-2">
-                        <div className="flex-1 bg-[#72b90d] py-2 sm:py-2.5 rounded-xl text-center text-[10px] sm:text-xs font-semibold text-[#000000] shadow-sm">Send</div>
-                        <div className="flex-1 bg-white/10 text-[#f9f6f6] py-2 sm:py-2.5 rounded-xl text-center text-[10px] sm:text-xs font-semibold backdrop-blur-md border border-white/10">Add Money</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Quick Actions */}
-                  <div className="flex justify-between items-center px-1 mb-5">
-                    {[
-                      { icon: 'solar:card-send-linear', label: 'Transfer' },
-                      { icon: 'solar:bill-list-linear', label: 'Bills' },
-                      { icon: 'solar:phone-calling-linear', label: 'Airtime' },
-                      { icon: 'solar:shield-check-linear', label: 'Loans' }
-                    ].map((act, i) => (
-                      <div key={i} className="flex flex-col items-center gap-1.5">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-[1rem] bg-white shadow-sm border border-slate-100 flex items-center justify-center text-[#2a650a]">
-                          <iconify-icon icon={act.icon} className="text-lg sm:text-xl"></iconify-icon>
-                        </div>
-                        <span className="text-[9px] sm:text-[10px] font-medium text-slate-600">{act.label}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Transactions */}
-                  <div className="bg-white rounded-[1.25rem] p-3 sm:p-4 border border-slate-100 shadow-sm mb-16">
-                    <div className="flex justify-between items-center mb-3 sm:mb-4 px-1">
-                      <span className="text-xs sm:text-sm font-semibold text-[#000000]">Recent</span>
-                      <span className="text-[10px] sm:text-xs font-medium text-[#72b90d]">See all</span>
-                    </div>
-                    <div className="space-y-3 sm:space-y-4">
-                      <div className="flex justify-between items-center px-1">
-                        <div className="flex items-center gap-2.5 sm:gap-3">
-                          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100 text-slate-600">
-                            <iconify-icon icon="solar:shop-linear" className="text-[14px] sm:text-base"></iconify-icon>
-                          </div>
-                          <div>
-                            <div className="text-[10px] sm:text-xs font-semibold text-slate-800">Shoprite Ltd</div>
-                            <div className="text-[8px] sm:text-[9px] text-slate-400">Today, 14:20</div>
-                          </div>
-                        </div>
-                        <span className="text-[10px] sm:text-xs font-semibold text-[#000000]">-₦15,400</span>
-                      </div>
-                      <div className="flex justify-between items-center px-1">
-                        <div className="flex items-center gap-2.5 sm:gap-3">
-                          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#72b90d]/10 flex items-center justify-center border border-[#72b90d]/20 text-[#2a650a]">
-                            <iconify-icon icon="solar:arrow-left-down-linear" className="text-[14px] sm:text-base"></iconify-icon>
-                          </div>
-                          <div>
-                            <div className="text-[10px] sm:text-xs font-semibold text-slate-800">Salary Deposit</div>
-                            <div className="text-[8px] sm:text-[9px] text-slate-400">Yesterday</div>
-                          </div>
-                        </div>
-                        <span className="text-[10px] sm:text-xs font-semibold text-[#72b90d]">+₦320,000</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Nav bar */}
-                <div className="absolute bottom-3 sm:bottom-4 left-3 right-3 sm:left-4 sm:right-4 bg-white/90 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] rounded-2xl h-14 flex items-center justify-around px-2 border border-slate-100 z-10 pointer-events-auto">
-                  <div className="flex flex-col items-center gap-0.5 text-[#2a650a]">
-                    <iconify-icon icon="solar:home-2-bold" className="text-xl sm:text-2xl"></iconify-icon>
-                    <div className="w-1 h-1 bg-[#2a650a] rounded-full"></div>
-                  </div>
-                  <iconify-icon icon="solar:card-linear" className="text-xl sm:text-2xl text-slate-400 hover:text-slate-600 transition-colors"></iconify-icon>
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#000000] flex items-center justify-center -translate-y-4 shadow-lg border-4 border-[#f9f6f6] hover:scale-105 transition-transform cursor-pointer">
-                    <iconify-icon icon="solar:qr-code-linear" className="text-xl text-[#f9f6f6]"></iconify-icon>
-                  </div>
-                  <iconify-icon icon="solar:chart-square-linear" className="text-xl sm:text-2xl text-slate-400 hover:text-slate-600 transition-colors"></iconify-icon>
-                  <iconify-icon icon="solar:user-linear" className="text-xl sm:text-2xl text-slate-400 hover:text-slate-600 transition-colors"></iconify-icon>
-                </div>
+                  <PhoneMockupUI />
+                 </div>
               </div>
              </div>
             </div>
           </div>
         </div>
-      </div>
+      // </div>
   );
 };
 
