@@ -63,7 +63,7 @@ export default function Leadership() {
 
 At Winview Microfinance Bank, we don't just manage money, we empower dreams. Over the years, we've stood as your trusted partner in Abuja and across Nigeria, turning small savings into big opportunities for families, entrepreneurs, and businesses like yours.
 
-Imagine opening an account today and watching your funds grow with our competitive interest rates— on savings and tailored loans, with flexible repayment. Whether you're a trader scaling your market stall, a farmer investing in better yields, or a professional building wealth, our digital app lets you deposit, withdraw, and track your progress anytime, anywhere—no long queues, no hassle.
+Imagine opening an account today and watching your funds grow with our competitive interest rates on savings and tailored loans, with flexible repayment. Whether you're a trader scaling your market stall, a farmer investing in better yields, or a professional building wealth, our digital app lets you deposit, withdraw, and track your progress anytime, anywhere—no long queues, no hassle.
 
 We're licensed by the CBN, backed by robust security, and committed to your success: last year alone, we disbursed over ₦500 million in loans that created 2,000+ jobs in our communities. Your money is safe, your growth is our priority, and your future starts here.`;
 
