@@ -12,10 +12,12 @@ A high-end, scroll-driven, digital-first banking experience built for the Nigeri
 
 ## 🛠️ Tech Stack
 
-- **Next.js 15+** (App Router)
-- **Framer Motion** (Animations & Scroll Logic)
-- **Lucide React** (Modern Icons)
-- **Vanilla CSS** (Custom Design System)
+- **Next.js 15+** (App Router & React Server Components)
+- **Tailwind CSS v3** (Utility-first styling, Flex/Grid Layouts, Gradients & Blur filters)
+- **GSAP (GreenSock)** (High-performance ScrollTrigger & Timeline Animations)
+- **Framer Motion** (Component-level micro-interactions & reactive states)
+- **Iconify** (Robust, minimal SVG icon packs including Solar and Lucide)
+- **React Hooks** (Performant state-driven interactivity like IntersectionObservers)
 
 ## 🎨 Design System
 

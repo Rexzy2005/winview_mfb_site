@@ -25,7 +25,15 @@ const Cooperative = () => {
               ></div>
               <div className="absolute -top-32 -right-32 w-64 h-64 bg-white/10 rounded-full blur-3xl mix-blend-overlay pointer-events-none transition-transform duration-700 group-hover:translate-x-10 group-hover:translate-y-10"></div>
               <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-[#72b90d]/20 rounded-full blur-3xl mix-blend-overlay pointer-events-none"></div>
-              
+                            {/* Winview Logo Watermark */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                <img 
+                  src="/brandLogo_transparent.png" 
+                  alt="Winview Watermark" 
+                  className="w-[55%] sm:w-[45%] opacity-15 grayscale brightness-200 sepia pointer-events-none"
+                  style={{ mixBlendMode: 'overlay' }}
+                />
+              </div>
               <div className="relative z-10 h-full flex flex-col justify-between">
                 {/* Top Row */}
                 <div className="flex justify-between items-start">
