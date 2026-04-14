@@ -95,7 +95,6 @@ const HowItWorks = () => {
             <img 
               src="/how_it_works.png" 
               alt="How it works" 
-              style={{ imageRendering: "high-quality" }}
               className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
             />
             <img 
