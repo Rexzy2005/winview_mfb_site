@@ -13,7 +13,7 @@ const Cooperative = () => {
           <div className="bg-white rounded-[2rem] md:rounded-[3rem] p-4 sm:p-8 border border-slate-200/60 shadow-sm relative">
             
             {/* Main Mastercard */}
-            <div className="bg-gradient-to-br from-[#112a06] via-[#1c440a] to-[#0a1803] rounded-[1.25rem] sm:rounded-[1.5rem] p-5 sm:p-6 md:p-8 aspect-[1.586/1] relative overflow-hidden shadow-[0_20px_50px_-12px_rgba(28,68,10,0.5)] mb-8 border border-white/10 group hover:-translate-y-2 transition-transform duration-500 w-full max-w-[450px] mx-auto lg:mx-0">
+            <div className="bg-gradient-to-br from-[#112a06] via-[#1c440a] to-[#0a1803] rounded-[1.25rem] sm:rounded-[1.5rem] p-4 sm:p-6 md:p-8 aspect-[1.586/1] relative overflow-hidden shadow-[0_20px_50px_-12px_rgba(28,68,10,0.5)] mb-8 border border-white/10 group hover:-translate-y-2 transition-transform duration-500 w-full max-w-[450px] mx-auto lg:mx-0">
               
               {/* Card Texture & Lighting */}
               <div 
@@ -43,7 +43,7 @@ const Cooperative = () => {
 
                 {/* Bottom Section */}
                 <div className="mt-auto">
-                  <div className="text-lg sm:text-2xl tracking-[0.15em] sm:tracking-[0.2em] text-white font-medium mb-2 font-mono drop-shadow-md" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
+                  <div className="text-xs sm:text-xl md:text-2xl tracking-[0.05em] sm:tracking-[0.2em] text-white font-medium mb-2 font-mono drop-shadow-md whitespace-nowrap" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
                     5399  2210  4432  8892
                   </div>
                   
